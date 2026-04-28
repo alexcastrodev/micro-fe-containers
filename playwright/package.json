@@ -1,0 +1,18 @@
+{
+  "name": "micro-fe-playwright",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "stack:up": "docker compose -f ../docker-compose.yml up --build -d",
+    "stack:down": "docker compose -f ../docker-compose.yml down",
+    "test:integration": "pnpm run stack:up && playwright test && pnpm run stack:down"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "typescript": "^5.9.3"
+  }
+}

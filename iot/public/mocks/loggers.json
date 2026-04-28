@@ -1,0 +1,242 @@
+[
+  {
+    "id": "lg-001",
+    "deviceId": "dev-1",
+    "zoneId": "zone-1",
+    "watts": 266.97,
+    "timestamp": "2026-04-28T10:00:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-002",
+    "deviceId": "dev-2",
+    "zoneId": "zone-2",
+    "watts": 393.55,
+    "timestamp": "2026-04-28T10:15:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-003",
+    "deviceId": "dev-3",
+    "zoneId": "zone-3",
+    "watts": 335.08,
+    "timestamp": "2026-04-28T10:30:00Z",
+    "status": "error"
+  },
+  {
+    "id": "lg-004",
+    "deviceId": "dev-4",
+    "zoneId": "zone-4",
+    "watts": 271.2,
+    "timestamp": "2026-04-28T10:45:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-005",
+    "deviceId": "dev-5",
+    "zoneId": "zone-5",
+    "watts": 320.79,
+    "timestamp": "2026-04-28T11:00:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-006",
+    "deviceId": "dev-6",
+    "zoneId": "zone-6",
+    "watts": 392.76,
+    "timestamp": "2026-04-28T11:15:00Z",
+    "status": "error"
+  },
+  {
+    "id": "lg-007",
+    "deviceId": "dev-7",
+    "zoneId": "zone-1",
+    "watts": 237.67,
+    "timestamp": "2026-04-28T11:30:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-008",
+    "deviceId": "dev-8",
+    "zoneId": "zone-2",
+    "watts": 228.45,
+    "timestamp": "2026-04-28T11:45:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-009",
+    "deviceId": "dev-1",
+    "zoneId": "zone-3",
+    "watts": 388.8,
+    "timestamp": "2026-04-28T12:00:00Z",
+    "status": "error"
+  },
+  {
+    "id": "lg-010",
+    "deviceId": "dev-2",
+    "zoneId": "zone-4",
+    "watts": 344.86,
+    "timestamp": "2026-04-28T12:15:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-011",
+    "deviceId": "dev-3",
+    "zoneId": "zone-5",
+    "watts": 349.4,
+    "timestamp": "2026-04-28T12:30:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-012",
+    "deviceId": "dev-4",
+    "zoneId": "zone-6",
+    "watts": 281.53,
+    "timestamp": "2026-04-28T12:45:00Z",
+    "status": "error"
+  },
+  {
+    "id": "lg-013",
+    "deviceId": "dev-5",
+    "zoneId": "zone-1",
+    "watts": 357.19,
+    "timestamp": "2026-04-28T13:00:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-014",
+    "deviceId": "dev-6",
+    "zoneId": "zone-2",
+    "watts": 397.89,
+    "timestamp": "2026-04-28T13:15:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-015",
+    "deviceId": "dev-7",
+    "zoneId": "zone-3",
+    "watts": 287.83,
+    "timestamp": "2026-04-28T13:30:00Z",
+    "status": "error"
+  },
+  {
+    "id": "lg-016",
+    "deviceId": "dev-8",
+    "zoneId": "zone-4",
+    "watts": 333.53,
+    "timestamp": "2026-04-28T13:45:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-017",
+    "deviceId": "dev-1",
+    "zoneId": "zone-5",
+    "watts": 262.09,
+    "timestamp": "2026-04-28T14:00:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-018",
+    "deviceId": "dev-2",
+    "zoneId": "zone-6",
+    "watts": 346.5,
+    "timestamp": "2026-04-28T14:15:00Z",
+    "status": "error"
+  },
+  {
+    "id": "lg-019",
+    "deviceId": "dev-3",
+    "zoneId": "zone-1",
+    "watts": 275.95,
+    "timestamp": "2026-04-28T14:30:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-020",
+    "deviceId": "dev-4",
+    "zoneId": "zone-2",
+    "watts": 395.57,
+    "timestamp": "2026-04-28T14:45:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-021",
+    "deviceId": "dev-5",
+    "zoneId": "zone-3",
+    "watts": 288.0,
+    "timestamp": "2026-04-28T15:00:00Z",
+    "status": "error"
+  },
+  {
+    "id": "lg-022",
+    "deviceId": "dev-6",
+    "zoneId": "zone-4",
+    "watts": 254.66,
+    "timestamp": "2026-04-28T15:15:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-023",
+    "deviceId": "dev-7",
+    "zoneId": "zone-5",
+    "watts": 291.05,
+    "timestamp": "2026-04-28T15:30:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-024",
+    "deviceId": "dev-8",
+    "zoneId": "zone-6",
+    "watts": 286.28,
+    "timestamp": "2026-04-28T15:45:00Z",
+    "status": "error"
+  },
+  {
+    "id": "lg-025",
+    "deviceId": "dev-1",
+    "zoneId": "zone-1",
+    "watts": 398.32,
+    "timestamp": "2026-04-28T16:00:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-026",
+    "deviceId": "dev-2",
+    "zoneId": "zone-2",
+    "watts": 356.93,
+    "timestamp": "2026-04-28T16:15:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-027",
+    "deviceId": "dev-3",
+    "zoneId": "zone-3",
+    "watts": 371.86,
+    "timestamp": "2026-04-28T16:30:00Z",
+    "status": "error"
+  },
+  {
+    "id": "lg-028",
+    "deviceId": "dev-4",
+    "zoneId": "zone-4",
+    "watts": 268.76,
+    "timestamp": "2026-04-28T16:45:00Z",
+    "status": "ok"
+  },
+  {
+    "id": "lg-029",
+    "deviceId": "dev-5",
+    "zoneId": "zone-5",
+    "watts": 245.9,
+    "timestamp": "2026-04-28T17:00:00Z",
+    "status": "warn"
+  },
+  {
+    "id": "lg-030",
+    "deviceId": "dev-6",
+    "zoneId": "zone-6",
+    "watts": 328.31,
+    "timestamp": "2026-04-28T17:15:00Z",
+    "status": "error"
+  }
+]

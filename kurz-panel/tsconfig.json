@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["packages/core/*"],
+      "@ui/*": ["packages/ui/*"],
+      "@modules/*": ["packages/modules/*"]
+    }
+  },
+  "include": ["src", "packages", "vite.config.ts"]
+}

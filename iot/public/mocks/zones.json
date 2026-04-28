@@ -1,0 +1,44 @@
+[
+  {
+    "id": "zone-1",
+    "name": "Centro",
+    "lat": -23.5505,
+    "lng": -46.6333,
+    "loggerCount": 6
+  },
+  {
+    "id": "zone-2",
+    "name": "Paulista",
+    "lat": -23.5614,
+    "lng": -46.6565,
+    "loggerCount": 4
+  },
+  {
+    "id": "zone-3",
+    "name": "Pinheiros",
+    "lat": -23.567,
+    "lng": -46.6939,
+    "loggerCount": 5
+  },
+  {
+    "id": "zone-4",
+    "name": "Moema",
+    "lat": -23.6011,
+    "lng": -46.6672,
+    "loggerCount": 3
+  },
+  {
+    "id": "zone-5",
+    "name": "Lapa",
+    "lat": -23.5262,
+    "lng": -46.7009,
+    "loggerCount": 7
+  },
+  {
+    "id": "zone-6",
+    "name": "Santo Amaro",
+    "lat": -23.654,
+    "lng": -46.7109,
+    "loggerCount": 5
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "name": "Alice Admin",
+      "roles": ["admin"]
+    },
+    {
+      "id": 2,
+      "username": "iot",
+      "password": "iot123",
+      "name": "Igor IoT",
+      "roles": ["iot-viewer"]
+    },
+    {
+      "id": 3,
+      "username": "finance",
+      "password": "finance123",
+      "name": "Fernanda Finance",
+      "roles": ["finance-viewer"]
+    }
+  ]
+}

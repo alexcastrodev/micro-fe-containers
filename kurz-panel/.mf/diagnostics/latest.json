@@ -1,0 +1,10 @@
+{
+  "latestErrorEvent": {
+    "code": "TYPE-001",
+    "message": "Failed to generate type declaration. Execute the below cmd to reproduce and fix the error. #TYPE-001\nargs: {\"cmd\":\"npx tsc --project /Users/alexandrocastro/ssd/micro-fe-containers/kurz-panel/node_modules/.federation/tsconfig.87a8d99615971f9b5c5c905600c8b6ad.json\"}\nView the docs to see how to solve: https://module-federation.io/guide/troubleshooting/type#type-001",
+    "args": {
+      "cmd": "npx tsc --project /Users/alexandrocastro/ssd/micro-fe-containers/kurz-panel/node_modules/.federation/tsconfig.87a8d99615971f9b5c5c905600c8b6ad.json"
+    },
+    "timestamp": 1777404728609
+  }
+}

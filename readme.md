@@ -17,6 +17,11 @@ Each frontend is an **independent project**, using:
 - pnpm workspaces (internal packages)
 - TanStack Query + static JSON mocks
 
+
+Why not NextJS? 🤢🤢
+
+https://github.com/module-federation/core/issues/3153
+
 ---
 
 ## Architecture

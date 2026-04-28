@@ -1,15 +1,79 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useMemo, useState, type ComponentType } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import { AdminLayout } from './layout/AdminLayout'
 import { ProtectedRoute } from './auth/ProtectedRoute'
+import { RemoteErrorBoundary } from './layout/RemoteErrorBoundary'
 
-const IotLoggers = lazy(() => import('iot/LoggersPage'))
-const IotMap = lazy(() => import('iot/MapPage'))
-const FinanceSummary = lazy(() => import('finance/SummaryPage'))
-const FinanceTransactions = lazy(() => import('finance/TransactionsPage'))
+type RemoteImport = () => Promise<{ default: ComponentType }>
 
-export default function App(){
-  return <BrowserRouter><Routes><Route path='/login' element={<Login/>}/><Route path='/*' element={<ProtectedRoute><AdminLayout><Suspense fallback={<div className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600 shadow-sm">Carregando remote...</div>}><Routes><Route path='/' element={<Dashboard/>}/><Route path='/iot/loggers' element={<ProtectedRoute requiredRoles={['iot-viewer']}><IotLoggers/></ProtectedRoute>}/><Route path='/iot/map' element={<ProtectedRoute requiredRoles={['iot-viewer']}><IotMap/></ProtectedRoute>}/><Route path='/finance/summary' element={<ProtectedRoute requiredRoles={['finance-viewer']}><FinanceSummary/></ProtectedRoute>}/><Route path='/finance/transactions' element={<ProtectedRoute requiredRoles={['finance-viewer']}><FinanceTransactions/></ProtectedRoute>}/></Routes></Suspense></AdminLayout></ProtectedRoute>} /></Routes></BrowserRouter>
+function RemoteRoute({ name, load }: { name: string; load: RemoteImport }) {
+  const [attempt, setAttempt] = useState(0)
+  const Component = useMemo(() => lazy(load), [load, attempt])
+  return (
+    <RemoteErrorBoundary name={name} onReset={() => setAttempt((n) => n + 1)} resetKey={attempt}>
+      <Suspense
+        fallback={
+          <div className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600 shadow-sm">
+            Carregando {name}...
+          </div>
+        }
+      >
+        <Component />
+      </Suspense>
+    </RemoteErrorBoundary>
+  )
+}
+
+const remote = (load: RemoteImport, name: string, roles: string[]) => (
+  <ProtectedRoute requiredRoles={roles}>
+    <RemoteRoute name={name} load={load} />
+  </ProtectedRoute>
+)
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route
+                    path="/iot/loggers"
+                    element={remote(() => import('iot/LoggersPage'), 'IoT Loggers', ['iot-viewer'])}
+                  />
+                  <Route
+                    path="/iot/map"
+                    element={remote(() => import('iot/MapPage'), 'IoT Map', ['iot-viewer'])}
+                  />
+                  <Route
+                    path="/finance/summary"
+                    element={remote(
+                      () => import('finance/SummaryPage'),
+                      'Finance Summary',
+                      ['finance-viewer'],
+                    )}
+                  />
+                  <Route
+                    path="/finance/transactions"
+                    element={remote(
+                      () => import('finance/TransactionsPage'),
+                      'Finance Transactions',
+                      ['finance-viewer'],
+                    )}
+                  />
+                </Routes>
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  )
 }

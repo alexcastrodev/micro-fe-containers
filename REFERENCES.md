@@ -21,6 +21,7 @@ Links úteis da documentação oficial e do código-fonte do Module Federation, 
 ## Tópicos avançados (relevantes aqui)
 
 - [Error handling / Fallback de remotes](https://module-federation.io/guide/basic/runtime/runtime-hooks.html#errorloadremote) — hook `errorLoadRemote` para tratar falhas de fetch (ex.: `ERR_CONNECTION_REFUSED`) sem derrubar o host.
+- [`@module-federation/retry-plugin`](https://module-federation.io/plugin/plugins/retry-plugin.html) — plugin oficial para retry automático de remotes com backoff, cache busting (`addQuery`) e rotação de domínios. Não tem fallback embutido — após esgotar `retryTimes`, o erro sobe e cai no `errorLoadRemote`.
 - [Dynamic Remotes](https://module-federation.io/guide/basic/runtime.html#registerremotes) — registrar remotes em runtime via `registerRemotes`.
 - [Shared modules / Singletons](https://module-federation.io/configure/shared.html) — `react`, `react-dom`, `react-router-dom`, `zustand`, `@tanstack/react-query` estão como singletons no host.
 - [`shareStrategy` (`version-first` vs `loaded-first`)](https://module-federation.io/configure/sharestrategy.html) — `version-first` (default no `@module-federation/vite`) força o fetch de **todos os `remoteEntry.js`** no boot para resolver versões dos singletons; se um remote estiver down, isolamento entre remotes fica comprometido. `loaded-first` carrega o entry do remote só quando ele é realmente importado — preferível para tolerância a falhas.

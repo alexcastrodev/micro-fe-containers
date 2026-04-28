@@ -17,6 +17,9 @@ importers:
       '@kurz/ui':
         specifier: workspace:*
         version: link:packages/ui
+      '@module-federation/retry-plugin':
+        specifier: ^2.3.3
+        version: 2.3.3
       '@tanstack/react-query':
         specifier: ^5.100.6
         version: 5.100.6(react@19.2.5)
@@ -320,6 +323,9 @@ packages:
 
   '@module-federation/managers@2.3.3':
     resolution: {integrity: sha512-sYL0t2guakJ+nDSQANH54uz5q1YxaNCn5C3lr+7BoRD49dX7Z6k7094yqOPEy8trzqdIoQVFpgewVA6IC/FeyQ==}
+
+  '@module-federation/retry-plugin@2.3.3':
+    resolution: {integrity: sha512-ifKEwwYF/9yQTIvbJxd6uLR60ezIzikVT3GGIeQzw0/IfPxDIZI2+JCpcfDC0WSD9MZ0Yf611O9hqc3cItw+vA==}
 
   '@module-federation/runtime-core@2.3.3':
     resolution: {integrity: sha512-B07LDH9KxhBO3GbULGW64mQFVQBtrEd3PoaCBm7XR1IbU8rMQUJQjDNVZgXYcyhRPBVP+3KWZuiaKFRiNb6PQw==}
@@ -1281,6 +1287,12 @@ snapshots:
     dependencies:
       '@module-federation/sdk': 2.3.3
       find-pkg: 2.0.0
+    transitivePeerDependencies:
+      - node-fetch
+
+  '@module-federation/retry-plugin@2.3.3':
+    dependencies:
+      '@module-federation/sdk': 2.3.3
     transitivePeerDependencies:
       - node-fetch
 

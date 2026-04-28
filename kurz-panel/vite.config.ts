@@ -13,7 +13,7 @@ export default defineConfig({
       name: 'kurz_panel',
       filename: 'remoteEntry.js',
       exposes: { './authStore': './src/auth/store.ts' },
-      runtimePlugins: ['./src/mf-runtime-plugin.ts'],
+      runtimePlugins: ['./src/mf-retry-plugin.ts', './src/mf-runtime-plugin.ts'],
       shareStrategy: 'loaded-first',
       remotes: {
         iot: {

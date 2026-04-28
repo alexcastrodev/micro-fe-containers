@@ -12,6 +12,7 @@
     "@kurz/core": "workspace:*",
     "@kurz/modules": "workspace:*",
     "@kurz/ui": "workspace:*",
+    "@module-federation/retry-plugin": "^2.3.3",
     "@tanstack/react-query": "^5.100.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

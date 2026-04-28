@@ -2,7 +2,7 @@
 
 This project demonstrates a **micro-frontend architecture** using **Module Federation with Vite**, composed of a host application (**Kurz Panel**) and two remotes (**IoT** and **Finance**), plus a mock **Auth API**.
 
-![Architecture Diagram](./architecture.png)
+![Architecture Diagram](./.github/architecture.jpg)
 
 ## Overview
 

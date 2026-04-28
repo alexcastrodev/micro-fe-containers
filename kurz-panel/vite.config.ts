@@ -14,6 +14,7 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: { './authStore': './src/auth/store.ts' },
       runtimePlugins: ['./src/mf-runtime-plugin.ts'],
+      shareStrategy: 'loaded-first',
       remotes: {
         iot: {
           type: 'module',

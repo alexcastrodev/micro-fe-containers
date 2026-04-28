@@ -1,5 +1,5 @@
 import { lazy, Suspense, useMemo, useState, type ComponentType } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import { AdminLayout } from './layout/AdminLayout'
@@ -32,6 +32,35 @@ const remote = (load: RemoteImport, name: string, roles: string[]) => (
   </ProtectedRoute>
 )
 
+function AdminRoutes() {
+  const location = useLocation()
+  return (
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={<Dashboard />} />
+      <Route
+        path="/iot/loggers"
+        element={remote(() => import('iot/LoggersPage'), 'IoT Loggers', ['iot-viewer'])}
+      />
+      <Route
+        path="/iot/map"
+        element={remote(() => import('iot/MapPage'), 'IoT Map', ['iot-viewer'])}
+      />
+      <Route
+        path="/finance/summary"
+        element={remote(() => import('finance/SummaryPage'), 'Finance Summary', ['finance-viewer'])}
+      />
+      <Route
+        path="/finance/transactions"
+        element={remote(
+          () => import('finance/TransactionsPage'),
+          'Finance Transactions',
+          ['finance-viewer'],
+        )}
+      />
+    </Routes>
+  )
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -42,33 +71,7 @@ export default function App() {
           element={
             <ProtectedRoute>
               <AdminLayout>
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route
-                    path="/iot/loggers"
-                    element={remote(() => import('iot/LoggersPage'), 'IoT Loggers', ['iot-viewer'])}
-                  />
-                  <Route
-                    path="/iot/map"
-                    element={remote(() => import('iot/MapPage'), 'IoT Map', ['iot-viewer'])}
-                  />
-                  <Route
-                    path="/finance/summary"
-                    element={remote(
-                      () => import('finance/SummaryPage'),
-                      'Finance Summary',
-                      ['finance-viewer'],
-                    )}
-                  />
-                  <Route
-                    path="/finance/transactions"
-                    element={remote(
-                      () => import('finance/TransactionsPage'),
-                      'Finance Transactions',
-                      ['finance-viewer'],
-                    )}
-                  />
-                </Routes>
+                <AdminRoutes />
               </AdminLayout>
             </ProtectedRoute>
           }

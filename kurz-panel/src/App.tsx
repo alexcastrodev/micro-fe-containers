@@ -5,12 +5,14 @@ import Dashboard from './pages/Dashboard'
 import { AdminLayout } from './layout/AdminLayout'
 import { ProtectedRoute } from './auth/ProtectedRoute'
 import { RemoteErrorBoundary } from './layout/RemoteErrorBoundary'
+import { loadRemoteComponent } from './mf-runtime-plugin'
 
-type RemoteImport = () => Promise<{ default: ComponentType }>
-
-function RemoteRoute({ name, load }: { name: string; load: RemoteImport }) {
+function RemoteRoute({ name, remoteId }: { name: string; remoteId: string }) {
   const [attempt, setAttempt] = useState(0)
-  const Component = useMemo(() => lazy(load), [load, attempt])
+  const Component = useMemo(
+    () => lazy(() => loadRemoteComponent<ComponentType>(remoteId)),
+    [remoteId, attempt],
+  )
   return (
     <RemoteErrorBoundary name={name} onReset={() => setAttempt((n) => n + 1)} resetKey={attempt}>
       <Suspense
@@ -26,9 +28,9 @@ function RemoteRoute({ name, load }: { name: string; load: RemoteImport }) {
   )
 }
 
-const remote = (load: RemoteImport, name: string, roles: string[]) => (
+const remote = (remoteId: string, name: string, roles: string[]) => (
   <ProtectedRoute requiredRoles={roles}>
-    <RemoteRoute name={name} load={load} />
+    <RemoteRoute name={name} remoteId={remoteId} />
   </ProtectedRoute>
 )
 
@@ -39,23 +41,19 @@ function AdminRoutes() {
       <Route path="/" element={<Dashboard />} />
       <Route
         path="/iot/loggers"
-        element={remote(() => import('iot/LoggersPage'), 'IoT Loggers', ['iot-viewer'])}
+        element={remote('iot/LoggersPage', 'IoT Loggers', ['iot-viewer'])}
       />
       <Route
         path="/iot/map"
-        element={remote(() => import('iot/MapPage'), 'IoT Map', ['iot-viewer'])}
+        element={remote('iot/MapPage', 'IoT Map', ['iot-viewer'])}
       />
       <Route
         path="/finance/summary"
-        element={remote(() => import('finance/SummaryPage'), 'Finance Summary', ['finance-viewer'])}
+        element={remote('finance/SummaryPage', 'Finance Summary', ['finance-viewer'])}
       />
       <Route
         path="/finance/transactions"
-        element={remote(
-          () => import('finance/TransactionsPage'),
-          'Finance Transactions',
-          ['finance-viewer'],
-        )}
+        element={remote('finance/TransactionsPage', 'Finance Transactions', ['finance-viewer'])}
       />
     </Routes>
   )

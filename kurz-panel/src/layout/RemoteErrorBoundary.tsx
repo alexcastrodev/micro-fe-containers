@@ -1,4 +1,5 @@
 import { Component, type ReactNode } from 'react'
+import { RemoteUnavailableError, resetRemote } from '../mf-runtime-plugin'
 
 type Props = {
   name: string
@@ -26,8 +27,19 @@ export class RemoteErrorBoundary extends Component<Props, State> {
   }
 
   handleRetry = () => {
-    this.setState({ error: null })
-    this.props.onReset?.()
+    const { error } = this.state
+    const reset = (() => {
+      if (error instanceof RemoteUnavailableError) {
+        return Promise.resolve(resetRemote(error.remoteId)).catch((err) =>
+          console.error('[mf] resetRemote failed:', err),
+        )
+      }
+      return Promise.resolve()
+    })()
+    void reset.then(() => {
+      this.setState({ error: null })
+      this.props.onReset?.()
+    })
   }
 
   render() {

@@ -5,23 +5,33 @@ services:
       - "4000:4000"
 
   iot:
-    build: ./iot
+    build:
+      context: ./iot
+      args:
+        VITE_HOST_ENTRY: http://localhost:3001/remoteEntry.js
     ports:
       - "5174:5174"
     depends_on:
       - auth-api
 
   finance:
-    build: ./finance
+    build:
+      context: ./finance
+      args:
+        VITE_HOST_ENTRY: http://localhost:3001/remoteEntry.js
     ports:
       - "5175:5175"
     depends_on:
       - auth-api
 
   kurz-panel:
-    build: ./kurz-panel
+    build:
+      context: ./kurz-panel
+      args:
+        VITE_IOT_ENTRY: http://localhost:5174/remoteEntry.js
+        VITE_FINANCE_ENTRY: http://localhost:5175/remoteEntry.js
     ports:
-      - "5173:5173"
+      - "3001:5173"
     depends_on:
       - auth-api
       - iot

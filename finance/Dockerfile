@@ -5,6 +5,8 @@ COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
 COPY packages ./packages
 RUN pnpm install --frozen-lockfile
 COPY . .
+ARG VITE_HOST_ENTRY
+ENV VITE_HOST_ENTRY=$VITE_HOST_ENTRY
 RUN pnpm build
 
 FROM node:24.15-alpine AS runner

@@ -13,8 +13,9 @@
     "paths": {
       "@core/*": ["packages/core/*"],
       "@ui/*": ["packages/ui/*"],
-      "@modules/*": ["packages/modules/*"]
+      "@modules/*": ["packages/modules/*"],
+      "*": ["./@mf-types/*"]
     }
   },
-  "include": ["src", "packages", "vite.config.ts"]
+  "include": ["src", "packages", "vite.config.ts", "module-federation.config.ts"]
 }

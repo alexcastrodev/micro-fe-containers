@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "packageManager": "pnpm@10.11.0",
   "scripts": {
     "dev": "vite --port 5175",
     "build": "vite build",
@@ -20,7 +21,8 @@
     "zustand": "^5.0.12"
   },
   "devDependencies": {
-    "@module-federation/vite": "^1.15.0",
+    "@module-federation/runtime": "^2.4.0",
+    "@module-federation/vite": "^1.15.4",
     "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
